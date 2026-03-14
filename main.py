@@ -104,7 +104,13 @@ def main():
 
     # Generate and save the desired number of samples for each passcode length
     for length in range(min_length, max_length + 1):
-        for _ in range(samples_per_length):
+        print(f"Generating samples for {length}-digit passcodes...")
+
+        for i in range(samples_per_length):
+            # Print progress every 10 samples
+            if (i + 1) % 10 == 0:
+                print(f"  Sample {i + 1}/{samples_per_length}")
+
             result = generate_sample(length)
             save_result(result)
 
